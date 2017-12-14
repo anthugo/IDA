@@ -11,7 +11,7 @@ IDA.on('ready', () => {
 
 
 });
-IDA.login('MzkwODkxNjg4MzIwODI3Mzky.DRQugQ.q2Z2KEijx7gge3hfm_AAFefBWLQ');
+IDA.login('process.env.TOKEN');
 
 IDA.on('message', message => {
     if (message.content === "/salut"){
