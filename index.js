@@ -1,4 +1,4 @@
-const Discord = require('next/require')('discord.js')
+const Discord = next/require('discord.js')
 
 var IDA =new Discord.Client({autoReconnect: true});
 var prefix = ("/");
