@@ -1,4 +1,5 @@
-    "discord.js": {
+{
+"discord.js": {
       "version": "11.2.1",
       "resolved": "https://registry.npmjs.org/discord.js/-/discord.js-11.2.1.tgz",
       "integrity": "sha512-8Mor+IREVWHinjRd6Bu6OwRfT+ET/WEoLWMl8crFvBVcTFmaO/TSwP39C8QIGCB2YMVMYMdljjX/w17AUMemqg==",
