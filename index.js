@@ -52,23 +52,24 @@ message.channel.sendMessage(Math.floor(Math.random() * (99) + 1));
 break;
 case "play":
 if (!args[1]){
-  message.channel.sendMessage("mettez un lieu svp");
+  message.channel.sendMessage("mettez un lien svp");
   return;
 }
 if(!message.member.voiceChannel){
   message.channel.sendMessage("il faut etre dans un channel pour ca :'(");
   return;
+}
 if(!servers[message.guild.id]) servers[message.guild.id] = {
   queue: []
-}
+};
 var server = servers[message.guild.id];
-
+server.queue.push(args[1]);
 if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection){
   play(connection, message);
-}
+});
 
-);
 break;
+
 case "skip":
 var server = servers[message.guild.id];
 
@@ -77,7 +78,6 @@ break;
 
 case "stop":
 var server = servers[message.guild.id];
-
 if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 break;
 
