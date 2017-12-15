@@ -30,7 +30,7 @@ IDA.on('message', message => {
             })
             .catch(console.log);
         } else {
-          message.reply('T'est simpa mais faut te connecter a un chat avant :issou: ');
+          message.reply('T est simpa mais faut te connecter a un chat avant :issou: ');
         }
       }
 
