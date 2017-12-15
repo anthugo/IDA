@@ -36,7 +36,7 @@ if (message.member.voiceChannel) {
 break;
 
 case "roll 1d100":
-message.channel.sendMessage(math.floor(Math.random() * (99) + 1));
+message.channel.sendMessage(Math.floor(Math.random() * (99) + 1));
 break;
 
 }
