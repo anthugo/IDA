@@ -32,7 +32,7 @@ IDA.on('message', message => {
         } else {
           message.reply('T est simpa mais faut te connecter a un chat avant :issou: ');
         }
-              if (message.content === 'roll 1d100') {
+              if (message.content === '/roll 1d100') {
         message.channel.sendMessage(Math.random() * (99) + 1);
       
       }
