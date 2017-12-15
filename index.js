@@ -1,8 +1,20 @@
 const Discord = require('discord.js')
+const YTDL = require("ytdl-core")
 
 var IDA =new Discord.Client({autoReconnect: true});
 const PREFIX = "/";
 var servers= {};
+
+function play(connection, message) {
+  var server = servers[message.guild.id];
+  server.dispatcher = connection.playStream(YTDL(server.queue[0],{filster: "audioonly"}));
+  serveur.queue.shift();
+  server.dispatcher.on("end", function(){
+    if (server.queue[0]) play(connection, message);
+    else connection.disconnect();
+
+  });
+}
 
 IDA.on('ready', () => {
     IDA.user.setPresence({ game: {name:'Observer la plebe'}})
@@ -38,7 +50,36 @@ break;
 case "roll 1d100":
 message.channel.sendMessage(Math.floor(Math.random() * (99) + 1));
 break;
+case "play":
+if (!args[1]){
+  message.channel.sendMessage("mettez un lieu svp");
+  return;
+}
+if(!message.member.voiceChannel){
+  message.channel.sendMessage("il faut etre dans un channel pour ca :'(");
+  return;
+if(!servers[message.guild.id]) servers[message.guild.id] = {
+  queue: []
+}
+var server = servers[message.guild.id];
+
+if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection){
+  play(connection, message);
+}
+
+);
+break;
+case "skip":
+var server = servers[message.guild.id];
+
+if (server.dispatcher) server.dispatcher.end();
+break;
+
+case "stop":
+var server = servers[message.guild.id];
+
+if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+break;
 
 }
 });
-
