@@ -30,7 +30,7 @@ IDA.on('message', message => {
             })
             .catch(console.log);
         } else {
-          message.reply('You need to join a voice channel first!');
+          message.reply('T'est simpa mais faut te connecter a un chat avant :issou: ');
         }
       }
       if (message.content === '/discon') {
