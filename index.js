@@ -33,9 +33,5 @@ IDA.on('message', message => {
           message.reply('T'est simpa mais faut te connecter a un chat avant :issou: ');
         }
       }
-      if (message.content === '/discon') {
-
-      
-      }
 
 });
