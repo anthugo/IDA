@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 var IDA =new Discord.Client({autoReconnect: true});
-var prefix = ("/");
+const PREFIX = "/";
 var servers= {};
 
 IDA.on('ready', () => {
@@ -14,10 +14,19 @@ IDA.on('ready', () => {
 IDA.login('MzkwODkxNjg4MzIwODI3Mzky.DRQugQ.q2Z2KEijx7gge3hfm_AAFefBWLQ');
 
 IDA.on('message', message => {
-    if (message.content === "/salut"){
-        message.channel.sendMessage("Salut");
-        console.log('salut');
-    }
+if (!message.content.startWith(PREFIX)) return;
+
+var args = message.content.substring(PREFIX.length).split(" ");
+
+switch (args[0]){ 
+case "salut":
+message.channel.sendMessage("salut!!");
+break;
+
+}
+
+
+
     if (!message.guild) return;
     
       if (message.content === '/join') {
