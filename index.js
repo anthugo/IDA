@@ -14,7 +14,7 @@ IDA.on('ready', () => {
 IDA.login('MzkwODkxNjg4MzIwODI3Mzky.DRQugQ.q2Z2KEijx7gge3hfm_AAFefBWLQ');
 
 IDA.on('message', message => {
-if (!message.content.startWith(PREFIX)) return;
+if (!message.content.startsWith(PREFIX)) return;
 
 var args = message.content.substring(PREFIX.length).split(" ");
 
