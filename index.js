@@ -35,9 +35,10 @@ if (message.member.voiceChannel) {
 }
 break;
 
-case "1d100":
-message.channel.sendMessage(Math.random() * (99) + 1);
+case "roll 1d100":
+message.channel.sendMessage(math.floor(Math.random() * (99) + 1));
 break;
-}
 
+}
 });
+
