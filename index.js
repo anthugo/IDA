@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
 const YTDL = require("ytdl-core")
-const FFMPEG = require("ffmpeg-binaries")
 
 var IDA =new Discord.Client({autoReconnect: true});
 const PREFIX = "/";
