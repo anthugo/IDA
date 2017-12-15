@@ -22,29 +22,22 @@ switch (args[0]){
 case "salut":
 message.channel.sendMessage("salut!!");
 break;
-
-}
-
-
-
-    if (!message.guild) return;
-    
-      if (message.content === '/join') {
-        // Only try to join the sender's voice channel if they are in one themselves
-        if (message.member.voiceChannel) {
-          message.member.voiceChannel.join()
-            .then(connection => { // Connection is an instance of VoiceConnection
-              message.reply('Me voila!!');
-              
-            })
-            .catch(console.log);
-        } else {
-          message.reply('T est simpa mais faut te connecter a un chat avant :issou: ');
-        }
-              if (message.content === '/roll 1d100') {
-        message.channel.sendMessage(Math.random() * (99) + 1);
+case "join":
+if (message.member.voiceChannel) {
+  message.member.voiceChannel.join()
+    .then(connection => { // Connection is an instance of VoiceConnection
+      message.reply('Me voila!!');
       
-      }
-      }
+    })
+    .catch(console.log);
+} else {
+  message.reply('T est simpa mais faut te connecter a un chat avant :issou: ');
+}
+break;
+
+case "1d100":
+message.channel.sendMessage(Math.random() * (99) + 1);
+break;
+
 
 });
