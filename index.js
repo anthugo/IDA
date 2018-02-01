@@ -23,7 +23,7 @@ IDA.on('ready', () => {
 
 
 });
-IDA.login('process.env.BOT_TOKEN');
+IDA.login(process.env.BOT_TOKEN);
 
 IDA.on('message', message => {
 if (!message.content.startsWith(PREFIX)) return;
