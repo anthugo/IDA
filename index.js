@@ -62,12 +62,14 @@ case "roll":
   x=args[1];
   y=args[2];
   i=0;
+  var T =[];
   while(i<x){
-T[i]=Math.random() * (y-1) + 1;
+T[i]=Math.round((Math.random()*(y)+1));
   i=i+1;
   }
-  message.channel.sendMessage();
+  message.channel.sendMessage(T);
 break;
+
 
     
     
