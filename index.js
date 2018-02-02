@@ -64,7 +64,7 @@ case "roll":
   i=0;
   var T =[];
   while(i<x){
-T[i]=Math.round((Math.random()*(y)+1));
+T[i]=Math.trunc((Math.random()*(y)+1));
     if (T[i]>y) {T[i]=y;}
   i=i+1;
   }
