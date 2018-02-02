@@ -56,10 +56,22 @@ break;
 case "help":
 message.channel.sendMessage("malheuresement cette section n'est pas fini :(");
 break;
-
-case "roll1d100":
-message.channel.sendMessage(Math.floor(Math.random() * (99) + 1));
+    
+    
+case "roll":
+  x=args[1];
+  y=args[2];
+  i=0;
+  while(i<x){
+T[i]=Math.random() * (y-1) + 1;
+  i=i+1;
+  }
+  message.channel.sendMessage();
 break;
+
+    
+    
+    
 case "play":
 if (!args[1]){
   message.channel.sendMessage("mettez un lien svp");
@@ -79,6 +91,10 @@ if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(func
 });
 
 break;
+    
+    
+    
+    
 
 case "join":
 if (message.member.voiceChannel) {
