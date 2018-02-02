@@ -18,7 +18,7 @@ function play(connection, message) {
 
 IDA.on('ready', () => {
     IDA.user.setPresence({ game: {name:'Observer la plebe'}})
-   //IDA.setYoutubeKey("AIzaSyBXZb1uoH98Flp4NT5p4aQ3JQpIH8N7ezc");
+   //IDA.setYoutubeKey(process.env.YOUTUBE_ID);
     console.log("Salut c'est IDA comment ca va les gars");
 
 
