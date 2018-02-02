@@ -31,23 +31,33 @@ if (!message.content.startsWith(PREFIX)) return;
 var args = message.content.substring(PREFIX.length).split(" ");
 
 switch (args[0]){ 
-case "salut":
+case "salut":          
 message.channel.sendMessage("salut!!");
 break;
-case "join":
-if (message.member.voiceChannel) {
-  message.member.voiceChannel.join()
-    .then(connection => { // Connection is an instance of VoiceConnection
-      message.reply('Me voila!!');
-      
-    })
-    .catch(console.log);
-} else {
-  message.reply('T est simpa mais faut te connecter a un chat avant :issou: ');
-}
+
+
+case "skip":
+var server = servers[message.guild.id];
+
+if (server.dispatcher) server.dispatcher.end();
 break;
 
-case "roll 1d100":
+case "stop":
+var server = servers[message.guild.id];
+if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+break;
+
+case "leave":
+guild.leave()
+.then(g => console.log(`Left the guild ${g}`))
+.catch(console.error);
+break;
+
+case "help":
+message.channel.sendMessage("malheuresement cette section n'est pas fini :(");
+break;
+
+case "roll1d100":
 message.channel.sendMessage(Math.floor(Math.random() * (99) + 1));
 break;
 case "play":
@@ -70,16 +80,17 @@ if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(func
 
 break;
 
-case "skip":
-var server = servers[message.guild.id];
-
-if (server.dispatcher) server.dispatcher.end();
+case "join":
+if (message.member.voiceChannel) {
+  message.member. d.join()
+    .then(connection => { // Connection is an instance of VoiceConnection
+      message.reply('Me voila!!');
+      
+    })
+    .catch(console.log);
+} else {
+  message.reply('T est simpa mais faut te connecter a un chat avant :issou: ');
+}
 break;
-
-case "stop":
-var server = servers[message.guild.id];
-if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-break;
-
 }
 });
