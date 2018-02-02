@@ -42,12 +42,12 @@ var server = servers[message.guild.id];
 if (server.dispatcher) server.dispatcher.end();
 break;
 
-case "stop":
+case "leave":
 var server = servers[message.guild.id];
 if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 break;
 
-case "leave":
+case "leave1":
 guild.leave()
 .then(g => console.log(`Left the guild ${g}`))
 .catch(console.error);
