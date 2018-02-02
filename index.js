@@ -65,7 +65,7 @@ case "roll":
   var T =[];
   while(i<x){
 T[i]=Math.round((Math.random()*(y)+1));
-    if (T[i]==y+1) T[i]=y;
+    if (T[i]<y+1) {T[i]=y;}
   i=i+1;
   }
   message.channel.sendMessage(T);
